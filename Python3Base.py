@@ -4,7 +4,7 @@
 '''
 @Author: Adam
 @Date: 2020-04-09 06:36:03
-@LastEditTime: 2020-04-12 17:08:12
+@LastEditTime: 2020-04-12 17:10:27
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /undefined/Users/adonis/Developer/MyGithubCode/LearnPython/Python3Base.py
@@ -297,6 +297,7 @@ print(d)
 # ---------------------------------------- start ----------------------------------------
 
 print('-----------函数-----------')
+# https://docs.python.org/3/library/functions.html#abs
 # 绝对值
 print(abs(100))
 print(abs(-20))
