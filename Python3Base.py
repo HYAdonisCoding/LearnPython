@@ -4,7 +4,7 @@
 '''
 @Author: Adam
 @Date: 2020-04-09 06:36:03
-@LastEditTime: 2020-04-12 14:54:45
+@LastEditTime: 2020-04-12 15:12:27
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /undefined/Users/adonis/Developer/MyGithubCode/LearnPython/Python3Base.py
@@ -215,6 +215,7 @@ while n < 10:
 
 # dict
 # ---------------------------------------- start ----------------------------------------
+'''
 print('-----------dict-----------')
 names = ['Michael', 'Bob', 'Tracy']
 scores = [95, 75, 85]
@@ -245,11 +246,50 @@ print(d)
 # 要保证hash的正确性，作为key的对象就不能变。在Python中，字符串、整数等都是不可变的，因此，可以放心地作为key。而list是可变的，就不能作为key：
 key = [1, 2, 3]
 # d[key] = 'a list' TypeError: unhashable type: 'list'
-
+'''
 # ---------------------------------------- end ----------------------------------------
 
 # set
 # ---------------------------------------- start ----------------------------------------
-# print('-----------set-----------')
+print('-----------set-----------')
+# set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。
+# 要创建一个set，需要提供一个list作为输入集合：
+s = set([1, 1, 2, 2, 3, 3])
+s.add(4)
+s.remove(1)
+print(s)
+s1 = set([1, 2, 3])
+print(s1)
+print(s & s1)
+print(s | s1)
+key = ['1', '2', '3']
+s2 = set(key)
+print(s2)
+## 再议不可变对象
+# 上面我们讲了，str是不变对象，而list是可变对象。
+# 对于可变对象，比如list，对list进行操作，list内部的内容是会变化的，比如：
+a = ['c', 'b', 'a']
+print(a)
+a.sort()
+print(a)
+# 而对于不可变对象，比如str，对str进行操作呢：
+s = 'abc'
+s1 = s.replace('a', 'A')
+print(s)
+print(s1)
+
+k1 = (1, 2, 3)
+k2 = (1, [2, 3])
+s2 = set(k1)
+print(s2)
+# s3 = set(k2)
+# print(s3)
+d = {'start' : 100}
+d[k1] = "k1"
+print(d)
+# d[k2] = 'k2'
+# print(d)
+
+
 # ---------------------------------------- end ----------------------------------------
 print('end')
