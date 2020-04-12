@@ -4,7 +4,7 @@
 '''
 @Author: Adam
 @Date: 2020-04-09 06:36:03
-@LastEditTime: 2020-04-12 13:45:20
+@LastEditTime: 2020-04-12 14:14:08
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /undefined/Users/adonis/Developer/MyGithubCode/LearnPython/Python3Base.py
@@ -116,6 +116,7 @@
 
 # 条件判断
 # ---------------------------------------- start ----------------------------------------
+'''
 age = 22
 if age >= 18:
     print('your age is', age)
@@ -135,6 +136,8 @@ else:
 # else:
 #     print('00后')
 '''
+
+'''
 练习
 
 小明身高1.75，体重80.5kg。请根据BMI公式（体重除以身高的平方）帮小明计算他的BMI指数，并根据BMI指数：
@@ -143,6 +146,7 @@ else:
 25-28：过重
 28-32：肥胖
 高于32：严重肥胖
+'''
 '''
 height = 1.75
 weight = 80.8
@@ -158,8 +162,53 @@ elif bmi < 32:
 else:
     print('严重肥胖', bmi)
 
-
+'''
 # ---------------------------------------- end ----------------------------------------
 
+# 循环
+# ---------------------------------------- start ----------------------------------------
+names = ['Michael', 'Bob', 'Tracy']
+for name in names:
+    print(name)
+sum = 0
+for x in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
+    sum = sum + x
+print(sum, list(range(5)))
+sum = 0
+for x in range(101):
+    sum = sum + x
+print(sum)
 
+print('-----------while循环-----------')
+sum = 0
+n = 99
+while n > 0:
+    sum = sum + n
+    n = n - 2
+print(sum)
+'''
+练习
+请利用循环依次对list中的每个名字打印出Hello, xxx!：
+'''
+L = ['Bart', 'Lisa', 'Adam']
+for name in L:
+    print('Hello, '+name+'!')
+print('-----------break-----------')
+n = 1
+while n <= 100:
+    if n > 10:
+        break
+    print(n)
+    n = n + 1
+print('-----------continue-----------')
+n = 0
+while n < 10:
+    n = n + 1
+    if n % 2 == 0:
+        continue
+    print(n)
+    
+    
+    
+# ---------------------------------------- end ----------------------------------------
 print('end')
