@@ -4,7 +4,7 @@
 '''
 @Author: Adam
 @Date: 2020-04-13 16:48:59
-@LastEditTime: 2020-04-13 21:03:15
+@LastEditTime: 2020-04-14 06:55:28
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /LearnPython/python3_senior.py
@@ -23,6 +23,7 @@ print(L)
 '''
 
 # 切片
+'''
 print('-----------切片-----------')
 L= ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
 # 取前3个元素，应该怎么做？
@@ -111,6 +112,71 @@ elif trim('    ') != '':
     print('测试失败!')
 else:
     print('测试成功!')
+'''
 # ---------------------------------------- end ----------------------------------------
 
+# 迭代
+# ---------------------------------------- start ----------------------------------------
+print('-----------迭代-----------')
+# 如果给定一个list或tuple，我们可以通过for循环来遍历这个list或tuple，这种遍历我们称为迭代（Iteration）。
+# 在Python中，迭代是通过for ... in来完成的，而很多语言比如C语言，迭代list是通过下标完成的，比如Java代码：
+d = {'a': 1, 'b': 2, 'c': 3}
+for key in d:
+    print(key)
+# 默认情况下，dict迭代的是key。如果要迭代value，可以用for value in d.values()，如果要同时迭代key和value，可以用for k, v in d.items()。
+for value in d.values():
+    print(value)
+for key, value in d.items():
+    print(key, ':', value)
+# 由于字符串也是可迭代对象，因此，也可以作用于for循环：
+for ch in 'ABCDEFG':
+    print(ch)
+# 所以，当我们使用for循环时，只要作用于一个可迭代对象，for循环就可以正常运行，而我们不太关心该对象究竟是list还是其他数据类型。
+# 那么，如何判断一个对象是可迭代对象呢？方法是通过collections模块的Iterable类型判断：
+from collections import Iterable
+print(isinstance('abc', Iterable))
+print(isinstance([1, 2, 3], Iterable))
+print(isinstance(123, Iterable))
+
+# 最后一个小问题，如果要对list实现类似Java那样的下标循环怎么办？Python内置的enumerate函数可以把一个list变成索引-元素对，这样就可以在for循环中同时迭代索引和元素本身：
+for i, value in enumerate(['A', 'B', 'C']):
+    print(i, value)
+# 上面的for循环里，同时引用了两个变量，在Python里是很常见的，比如下面的代码：
+for x, y in [(1, 1), (2, 4), (3, 9)]:
+    print(x, y)
+
+# 练习
+# 请使用迭代查找一个list中最小和最大值，并返回一个tuple：
+def findMinAndMax(L):
+    "寻找列表中的最大值和最小值，空列表返回None，不用list.sort，不用max、min"
+    if len(L) == 0 or not isinstance(L, list):
+        return (None, None)
+    min = L[0]
+    max = L[0]
+    try:
+        for i in L:
+            if min > i:
+                min = i
+            elif max < i:
+                max = i
+    except TypeError:
+        print(r"can't compare different types")
+        return (None, None)
+    else:
+        return (min, max)
+# 测试
+if findMinAndMax([]) != (None, None):
+    print('测试失败!')
+elif findMinAndMax([7]) != (7, 7):
+    print('测试失败!')
+elif findMinAndMax([7, 1]) != (1, 7):
+    print('测试失败!')
+elif findMinAndMax([7, 1, 3, 9, 5]) != (1, 9):
+    print('测试失败!')
+else:
+    print('测试成功!')
+print(findMinAndMax('abc'))
+
+print(findMinAndMax(['a','b',1]))
+# ---------------------------------------- end ----------------------------------------
 print('-----------End-----------')
